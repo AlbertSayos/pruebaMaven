@@ -1,0 +1,8 @@
+package fiuba.algo3.JuegoDeMesa;
+
+public class ConstructorDeCurandero extends Constructor {
+	
+	public ConstructorDeCurandero() {
+		identidad = "curandero";
+	}
+}

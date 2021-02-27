@@ -1,0 +1,88 @@
+package fiuba.algo3.JuegoDeMesa;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import juegoDeMesa.Coordenada;
+
+public class Tablero {
+	
+	HashMap <Coordenada, Unidad> tabla;
+	/*
+	Set <Coordenada> campo_1;
+	Set <Coordenada> campo_2;
+	*/
+	
+	
+	public Tablero() {
+		
+		tabla = new HashMap<Coordenada,Unidad>();
+		/*
+		campo_1 = new HashSet<Coordenada>();
+		campo_2 = new HashSet <Coordenada>();
+		*/
+		generarCoordenadas();
+	}
+	
+	private void generarCoordenadas() {
+		for(int x=0 ;x < 20; x++ ){
+			
+			for(int y=0 ; y< 20;y++ ) {
+				Coordenada coordenada = new Coordenada(x,y);
+				tabla.put(coordenada, null);
+			}
+		}
+	}
+	
+	
+	public void establecerSectores(Jugador jugador_1, Jugador jugador_2) {
+		
+		// "00" , "01" , "02"
+		
+		for(int x=0 ;x < 20; x++ ){
+			
+			for(int y=0 ; y< 10;y++ ) {
+				Coordenada coordenada = new Coordenada(x,y);
+				jugador_1.creacSector(coordenada);
+			}
+			for(int y=10 ; y< 20;y++ ) {
+				Coordenada coordenada = new Coordenada(x,y);
+				jugador_2.creacSector(coordenada);
+			}
+		}
+	}
+	
+	public Unidad getUnidad(int x, int y) {
+		
+		Coordenada coordenada = new Coordenada(x,y);
+		
+		return tabla.get(coordenada);
+	}
+	
+	public boolean colocarUnidad(Unidad unidad,int x, int y,Jugador jugador) {
+		Coordenada coordenada = new Coordenada(x,y);
+		if(tabla.get(coordenada) != null) {
+			return false;
+		}
+		tabla.put(coordenada, unidad);
+		return true;
+	}
+
+	public void moverUnidad(int x_inicial, int y_inicial, int x_final, int y_final) {
+		Coordenada coordenada_inicial = new Coordenada(x_inicial,y_inicial);
+		Coordenada coordenada_final = new Coordenada(x_final,y_final);
+		if( tabla.get(coordenada_final) != null ) {
+			return;
+		}
+			
+		int movimiento = tabla.get(coordenada_inicial).mover();
+		if(coordenada_inicial.dentroDelRango(coordenada_final, movimiento)){
+			tabla.put(coordenada_final, tabla.get(coordenada_inicial));
+			tabla.put(coordenada_inicial, null);
+		}
+		
+	}
+	
+	
+}

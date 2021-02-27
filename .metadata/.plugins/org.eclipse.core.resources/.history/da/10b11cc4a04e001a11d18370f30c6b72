@@ -1,0 +1,18 @@
+package fiuba.algo3.JuegoDeMesa;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Constructor {
+	
+	List<Constructor> constructores = Arrays.asList(new ConstructorDeInfanteria(),
+			new ConstructorDeJinete(),
+			new ConstructorDeCurandero(),
+			new ConstructorDeCatapula()
+			 );
+		public void Constructor(){
+			
+		}
+	
+}

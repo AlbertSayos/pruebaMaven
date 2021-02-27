@@ -1,0 +1,10 @@
+package fiuba.algo3.JuegoDeMesa;
+
+public class ConstructorDeInfanteria extends Constructor {
+	
+	
+	public ConstructorDeInfanteria() {
+		identidad = "infanteria";
+	}
+	
+}

@@ -1,0 +1,52 @@
+package fiuba.algo3.JuegoDeMesa;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import juegoDeMesa.Coordenada;
+
+public class Jugador {
+	
+	int puntos_maximos;
+	Set<Coordenada> sector;;
+	Set<Unidad> unidades;
+	int puntos_actuales;
+	
+	public Jugador() {
+		puntos_maximos = 20;
+		sector = new HashSet<Coordenada>();
+		unidades = new HashSet<Unidad>();
+		puntos_actuales = 0;
+	}
+	
+	public boolean CoordenadaEsMiSector(Coordenada coordenada) {
+		return sector.contains(coordenada);
+	}
+	
+	public boolean GuardarUnidad(Unidad unaUnidad ) {
+		if( unaUnidad.getCosto() + puntos_actuales > puntos_maximos) {
+			return false;
+		}
+		puntos_actuales = unaUnidad.getCosto() + puntos_actuales;
+		unidades.add(unaUnidad);
+		return true;
+	}
+	
+	public void creacSector(Coordenada coordenada) {
+		sector.add(coordenada);
+	}
+	
+	public boolean unidadPerteneceAJugador(Unidad unaUnidad) {
+		return unidades.contains(unaUnidad);
+	}
+	
+	public boolean esElPerdedor() {
+		return puntos_actuales == 0;
+	}
+	
+	public boolean quitarUnidad(Unidad unaUnidad) {
+		
+		return false;
+	}
+	
+}

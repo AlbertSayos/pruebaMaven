@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="JuegoDeMesa.Infanteria"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Tablero"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.Match"/>
+<fullyQualifiedTypeName name="org.apache.ivy.plugins.version.Match"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Curandero"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="juegoDeMesa.Coordenada"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Jugador"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Infanteria"/>
+<fullyQualifiedTypeName name="junit.framework.Assert"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Catapulta"/>
+<fullyQualifiedTypeName name="fiuba.algo3.JuegoDeMesa.Jinete"/>
+</qualifiedTypeNameHistroy>

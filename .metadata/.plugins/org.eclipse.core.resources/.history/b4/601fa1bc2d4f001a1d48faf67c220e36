@@ -1,0 +1,9 @@
+package fiuba.algo3.JuegoDeMesa;
+
+public class ConstructorDeJinete extends Constructor {
+	
+	public ConstructorDeJinete() {
+		identidad = "jinete";
+	}
+	
+}

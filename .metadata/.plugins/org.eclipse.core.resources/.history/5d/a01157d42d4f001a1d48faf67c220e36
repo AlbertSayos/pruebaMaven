@@ -1,0 +1,34 @@
+package fiuba.algo3.JuegoDeMesa;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public abstract class  Constructor {
+	
+	List<Constructor> constructores = Arrays.asList(new ConstructorDeInfanteria(),
+			new ConstructorDeJinete(),
+			new ConstructorDeCurandero(),
+			new ConstructorDeCatapula()
+			 );
+	String identidad;
+
+	
+	public Unidad construirUnidad(String unaIdentidadDeUnidad) {
+		for(Constructor contructor: constructores) {
+			if(contructor.puedeConstruir(unaIdentidadDeUnidad) ) {
+				
+			}
+		}
+		
+		return null;
+	}
+	
+	private boolean puedeConstruir(String unaIdentidadDeUnidad) { 
+		return unaIdentidadDeUnidad.equals(identidad);
+		
+	}
+	
+	public abstract Unidad getUnidad();
+	
+}

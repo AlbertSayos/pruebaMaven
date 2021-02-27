@@ -1,0 +1,25 @@
+package juegoDeMesa;
+
+import org.junit.Test;
+
+import fiuba.algo3.JuegoDeMesa.Infanteria;
+import fiuba.algo3.JuegoDeMesa.Jugador;
+
+public class JugadorTest {
+	
+	@Test
+	public void jugadorGuardaUnidad() {
+		Jugador jugador = new Jugador();
+		Infanteria infanteria = new Infanteria();
+		jugador.GuardarUnidad(infanteria);
+		
+		assert.AssertEquals(true ,true );
+		
+		
+	}
+	
+	@Test
+	public void jugador() {
+		
+	}
+}

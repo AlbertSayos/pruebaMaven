@@ -1,0 +1,82 @@
+package juegoDeMesa;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import fiuba.algo3.JuegoDeMesa.Catapulta;
+import fiuba.algo3.JuegoDeMesa.Curandero;
+import fiuba.algo3.JuegoDeMesa.Infanteria;
+import fiuba.algo3.JuegoDeMesa.Jugador;
+import fiuba.algo3.JuegoDeMesa.Tablero;
+
+public class tableroTest {
+	
+	@Test
+	public void creacionDeTablero() {
+		Tablero tablero = new Tablero();
+		
+		Assert.assertEquals(tablero.getUnidad(0, 0) , null );
+		
+	}
+	
+	@Test
+	public void tableroColocaSoldados() {
+		Tablero tablero = new Tablero();
+		Infanteria infanteria = new Infanteria();
+		tablero.colocarUnidad(infanteria, 0, 0);
+		Assert.assertEquals(tablero.getUnidad(0, 0) , infanteria );
+		
+	}
+	
+	@Test
+	public void tableroMueveSoldados() {
+		Tablero tablero = new Tablero();
+		Infanteria infanteria = new Infanteria();		
+		tablero.colocarUnidad(infanteria, 0, 0);
+		
+		tablero.moverUnidad(0,0,0,1);
+		Assert.assertEquals(tablero.getUnidad(0, 0) , null );
+		Assert.assertEquals(tablero.getUnidad(0, 1) , infanteria );
+	}
+	
+	@Test
+	public void tableroNoMueveSoldados() {
+		Tablero tablero = new Tablero();
+		Infanteria infanteria = new Infanteria();
+		Infanteria infanteria_2 = new Infanteria();
+		tablero.colocarUnidad(infanteria, 0, 0);
+		tablero.colocarUnidad(infanteria_2, 0, 1);
+		
+		tablero.moverUnidad(0,0,0,1);
+		Assert.assertEquals(tablero.getUnidad(0, 0) , infanteria );
+		Assert.assertEquals(tablero.getUnidad(0, 1) , infanteria_2 );
+	}
+	
+	@Test
+	public void tableroNoColocaUnidadEnPosicionOcupada() {
+		Tablero tablero = new Tablero();
+		Infanteria infanteria = new Infanteria();
+		Curandero curandero = new Curandero();
+		//Catapulta catapulta = new Catapulta();
+		
+		tablero.colocarUnidad(infanteria, 0, 0);
+		
+		Assert.assertEquals(tablero.colocarUnidad(curandero, 0, 0) , false );
+		Assert.assertEquals(tablero.getUnidad(0, 0) , infanteria );
+	}
+	
+	
+	@Test
+	public void tableroNoColocaUnidadEnSectorEnemigo() {
+		Tablero tablero = new Tablero();
+		Jugador jugador_1 = new Jugador();
+		Jugador jugador_2 = new Jugador();
+		tablero.establecerSectores(jugador_1,jugador_2);
+		Infanteria infanteria = new Infanteria();
+		
+		
+		Assert.assertEquals(tablero.colocarUnidad(infanteria, 0, 0) , true );
+		
+	}
+	
+}

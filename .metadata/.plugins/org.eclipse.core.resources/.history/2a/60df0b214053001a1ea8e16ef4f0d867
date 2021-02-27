@@ -1,0 +1,60 @@
+package juegoDeMesa;
+
+import org.junit.Test;
+
+import fiuba.algo3.JuegoDeMesa.Catapulta;
+import fiuba.algo3.JuegoDeMesa.Infanteria;
+import fiuba.algo3.JuegoDeMesa.Jinete;
+import fiuba.algo3.JuegoDeMesa.Jugador;
+import junit.framework.Assert;
+
+public class JugadorTest {
+	
+	@Test
+	public void jugadorGuardaUnidad() {
+		Jugador jugador = new Jugador();
+		Infanteria infanteria = new Infanteria();
+		jugador.GuardarUnidad(infanteria);
+		
+		Assert.assertEquals(jugador.unidadPerteneceAJugador(infanteria), true);
+		
+		
+	}
+	
+
+	@Test
+	public void jugadorTieneUnLimiteDeGuardadoDeUnidades() {
+		Jugador jugador = new Jugador();
+		Infanteria infanteria = new Infanteria();
+		Catapulta catapultaUno = new Catapulta();
+		Catapulta catapultaDos = new Catapulta();
+		Catapulta catapultaTres = new Catapulta();
+		Jinete jineteUno =  new Jinete();
+		Jinete jineteDos =  new Jinete();
+		
+		jugador.GuardarUnidad(infanteria);
+		jugador.GuardarUnidad(catapultaUno);
+		jugador.GuardarUnidad(catapultaDos);
+		jugador.GuardarUnidad(catapultaTres);
+		Assert.assertEquals(jugador.GuardarUnidad(jineteUno), true);
+		Assert.assertEquals(jugador.GuardarUnidad(jineteDos), false);
+		
+		
+	}
+	
+	public void jugadorEsElPerdedor() {
+		Jugador jugador = new Jugador();
+		Infanteria infanteria = new Infanteria();
+		Catapulta catapultaUno = new Catapulta();
+		Jinete jineteDos =  new Jinete();
+		
+		jugador.GuardarUnidad(infanteria);
+		jugador.GuardarUnidad(catapultaUno);
+		jugador.GuardarUnidad(jineteDos);
+		
+		jugador.quitarUnidad(infanteria);
+		Assert.assertEquals(jugador.esElPerdedor(), true);
+		
+	}
+	
+}

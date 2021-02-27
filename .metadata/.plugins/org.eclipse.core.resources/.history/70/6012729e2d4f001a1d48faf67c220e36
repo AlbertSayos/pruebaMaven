@@ -1,0 +1,9 @@
+package fiuba.algo3.JuegoDeMesa;
+
+public class ConstructorDeCatapula extends Constructor {
+	
+	public ConstructorDeCatapula() {
+		identidad = "catapulta";
+	}
+	
+}
