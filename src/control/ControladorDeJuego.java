@@ -36,7 +36,7 @@ public class ControladorDeJuego {
 		juegoVista.borrarDibujo();
 	}
 
-	public void añadirBloque(CreadorDeBloques creadorDeBloques, String img) {
+	public void aniadirBloque(CreadorDeBloques creadorDeBloques, String img) {
 		Bloques bloque = creadorDeBloques.crearBloque();
 		juego.agregarBloque(bloque);
 		juegoVista.agregarImgBloque(img);
