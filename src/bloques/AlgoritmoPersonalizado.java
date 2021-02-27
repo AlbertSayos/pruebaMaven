@@ -33,4 +33,5 @@ public class AlgoritmoPersonalizado implements Bloques{
 	public String ubicacion() {
 		return "personalizado";
 	}
+	
 }
