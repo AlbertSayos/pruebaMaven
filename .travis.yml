@@ -21,3 +21,5 @@ notifications:
       - asayos@fi.uba.ar
     on_failure: always
 
+before_script:
+  - export LANG=en_US.UTF-8
