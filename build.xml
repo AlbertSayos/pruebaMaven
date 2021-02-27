@@ -53,8 +53,8 @@
 	</target>
 
 	<target name="compilar.aplicacion" depends="setup, resolve">
-		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.8">
-			<classpath refid="classpath" encoding="iso-8859-1" />
+		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.8" encoding="iso-8859-1">
+			<classpath refid="classpath" />
 		</javac>
 	</target>
 
