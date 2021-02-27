@@ -9,6 +9,10 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  
+ before_install:
+  - sudo apt update
+  - sudo apt install openjfx
 
 ignore:
   - module-info.java
@@ -21,5 +25,3 @@ notifications:
       - asayos@fi.uba.ar
     on_failure: always
 
-before_script:
-  - export LANG=en_US.UTF-8
