@@ -1,8 +1,7 @@
 Ejemplo                                                                                                                                                                 
 ==========
 
-[![Build Status](https://nicopaez.ci.cloudbees.com/view/Algo3/job/proyecto-base-aglo3/badge/icon)](https://nicopaez.ci.cloudbees.com/view/Algo3/job/proyecto-base-aglo3/)
-
+[![Build Status]https://www.travis-ci.com/github/AlbertSayos/pruebaMaven.svg?branch=master)](https://www.travis-ci.com/github/AlbertSayos/pruebaMaven) [![codecov](https://codecov.io/gh/AlbertSayos/pruebaMaven/branch/master/graph/badge.svg)](https://codecov.io/gh/AlbertSayos/pruebaMaven)
 Este proyecto es un simple ejemplo que muestra un proyecto base en Java para la material Algo3.
 
 ## Definición de pruebas
