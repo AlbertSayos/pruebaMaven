@@ -1,36 +1,33 @@
 package algoritmo;
 
-import bloques.Bloques;
+import bloques.Bloque;
 import bloques.SectorBloques;
 import dibujos.Dibujo;
-import dibujos.SectorDibujo;
 
 import java.util.ArrayList;
 
 public class Tablero {
 
     private Algoritmo sector_algoritmo;
-    private SectorDibujo sector_dibujo;
-    private SectorBloques sector_bloques;
-    private ArrayList<Bloques> algoritmo_guardado;
+    private Dibujo dibujo;
+    private ArrayList<Bloque> algoritmo_guardado;
 
     public Tablero(){
         this.sector_algoritmo = new Algoritmo();
-        this.sector_dibujo = new SectorDibujo();
-        this.sector_bloques = new SectorBloques();
+        this.dibujo = new Dibujo();
         this.algoritmo_guardado = new ArrayList<>();
     }
 
     public void ejecutarAlgoritmoCon(Personaje personaje){
-        this.sector_algoritmo.ejecutar(personaje, this.sector_dibujo.getDibujo());
+        this.sector_algoritmo.ejecutar(personaje, this.dibujo);
     }
 
-    public void agregarBloqueAlAlgoritmo(Bloques un_bloque){
+    public void agregarBloqueAlAlgoritmo(Bloque un_bloque){
         this.sector_algoritmo.agregarBloque(un_bloque);
     }
     
     public boolean dibujoVacio(){
-        return this.sector_dibujo.getDibujo().estaEnBlanco();
+        return this.dibujo.estaEnBlanco();
     }
     
     public void reiniciarAlgoritmo(){
@@ -39,25 +36,25 @@ public class Tablero {
     }
     
     public void borrarDibujo() {
-    	this.sector_dibujo.borrarDibujo();
+    	this.dibujo.borrar();;
     }
     
     public void guardarAlgoritmoActual(){
         this.sector_algoritmo.getAlgoritmo().forEach(bloque ->this.algoritmo_guardado.add(bloque));
-        //faltaria hacer que sector_bloques cree un bloque de AlgoritmoPersonalizado para poder usar
     }
 
     public Algoritmo darAlgoritmo(){
         return this.sector_algoritmo;
     }
-
-	public void seleccionarBloqueAlAlgoritmo(int unaPosicion) {
-		Bloques unBloque = sector_bloques.seleccionarBloque(unaPosicion);
-		this.agregarBloqueAlAlgoritmo(unBloque);
-	}
+	
+    public ArrayList<Bloque> darAlgoritmoGuardado(){
+    	ArrayList<Bloque> algoritmo_guardadoAux = this.algoritmo_guardado;
+    	this.algoritmo_guardado = new ArrayList<>();
+        return algoritmo_guardadoAux;
+    }
 
 	public Dibujo mostrarDibujo() {
-		return sector_dibujo.getDibujo();
+		return this.dibujo;
 	}
     
 }

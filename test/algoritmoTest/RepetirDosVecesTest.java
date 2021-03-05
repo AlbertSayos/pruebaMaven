@@ -1,15 +1,15 @@
 package algoritmoTest;
+
 /*
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 */
-
 import junit.framework.Assert;
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import algoritmo.*;
-import bloques.BajarLapiz;
 import bloques.MoverArriba;
 import bloques.RepetirDosVeces;
 import dibujos.Dibujo;
@@ -43,14 +43,13 @@ public class RepetirDosVecesTest {
 		Personaje personaje =new Personaje();
 		RepetirDosVeces repeticion = new RepetirDosVeces();
 		MoverArriba arriba = new MoverArriba();
-		
-		
 		Dibujo dibujo = new Dibujo();
+		
 		repeticion.agregarBloque(arriba);
 		repeticion.ejecutarBloque(personaje, dibujo);
 		
 		Posicion posicionDelPersonaje = personaje.getPosicion();
-		Posicion posicionEsperada = new Posicion(7,5);
+		Posicion posicionEsperada = new Posicion(5,7);
 		
 		Boolean iguales = posicionDelPersonaje.sonIguales(posicionEsperada);
 		

@@ -6,17 +6,28 @@ import dibujos.Dibujo;
 import excepciones.*;
 import java.util.ArrayList;
 
-public class AlgoritmoPersonalizado implements Bloques{
+public class AlgoritmoPersonalizado implements Bloque{
 
-    private ArrayList<Bloques> algoritmo;
+    private ArrayList<Bloque> algoritmo;
 
-    public AlgoritmoPersonalizado(Algoritmo algoritmoAGuardar) throws NoHayAlgoritmoGuardadoException{
+    public AlgoritmoPersonalizado(){
+
         this.algoritmo = new ArrayList<>();
 
-        if (algoritmoAGuardar.getAlgoritmo().size() == 0){
+    }
+	
+   public AlgoritmoPersonalizado(ArrayList<Bloque> algoritmoAGuardar) throws NoHayAlgoritmoGuardadoException {
+
+        this.algoritmo = new ArrayList<>();
+        this.agregarAlgoritmo(algoritmoAGuardar);
+
+    }
+	
+    public void agregarAlgoritmo(ArrayList<Bloque> algoritmoAGuardar) throws NoHayAlgoritmoGuardadoException {
+        if (algoritmoAGuardar.size() == 0){
             throw new NoHayAlgoritmoGuardadoException();
         }
-        algoritmoAGuardar.getAlgoritmo().forEach(bloque -> this.algoritmo.add(bloque));
+        algoritmoAGuardar.forEach(bloque -> this.algoritmo.add(bloque));
     }
 
     @Override
@@ -28,10 +39,4 @@ public class AlgoritmoPersonalizado implements Bloques{
     public void ejecutarBloqueInvertido(Personaje un_personaje, Dibujo un_dibujo) {
         this.algoritmo.forEach(bloque -> bloque.ejecutarBloqueInvertido(un_personaje, un_dibujo));
     }
-
-	@Override
-	public String ubicacion() {
-		return "personalizado";
-	}
-	
 }

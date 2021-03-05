@@ -4,9 +4,9 @@ package dibujosTest;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 */
-
 import junit.framework.Assert;
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import algoritmo.*;
@@ -44,21 +44,28 @@ public class DibujoTest {
 		Posicion posicionDos = new Posicion(0,1);
 		Posicion posicionTres = new Posicion(0,2);
 		Personaje personaje = new Personaje();
+		Personaje personaje2 = new Personaje();
 		
 		personaje.bajarLapiz();
-		
 		dibujo.DibujarEn(posicionUno, personaje);
-		otroDibujo.DibujarEn(posicionUno, personaje);
-		
+		personaje.moverseA(0, 1);
+		dibujo.DibujarEn(posicionUno, personaje);
+		personaje.moverseA(0, 1);
 		dibujo.DibujarEn(posicionDos, personaje);
-		otroDibujo.DibujarEn(posicionDos, personaje);
 		
-		dibujo.DibujarEn(posicionTres, personaje);
-		otroDibujo.DibujarEn(posicionTres, personaje);
+		
+		personaje2.bajarLapiz();
+		otroDibujo.DibujarEn(posicionUno, personaje2);
+		personaje2.moverseA(0, 1);
+		otroDibujo.DibujarEn(posicionUno, personaje2);
+		personaje2.moverseA(0, 1);
+		otroDibujo.DibujarEn(posicionDos, personaje2);
+		
+		
 		
 		assertTrue(dibujo.EsIgualA(otroDibujo));
 	}
-	
+
 	@Test
 	public void test04SeCreaDosDibujosYNoSonIguales(){
 		Dibujo dibujo = new Dibujo();
@@ -68,40 +75,47 @@ public class DibujoTest {
 		Posicion posicionTres = new Posicion(0,2);
 		Posicion posicionCuatro = new Posicion(0,3);
 		Personaje personaje = new Personaje();
+		Personaje personaje2 = new Personaje();
 
-        	personaje.bajarLapiz();
-		
+        personaje.bajarLapiz();
 		dibujo.DibujarEn(posicionUno, personaje);
-		otroDibujo.DibujarEn(posicionUno, personaje);
-		
+		personaje.moverseA(0, 1);
+		dibujo.DibujarEn(posicionUno, personaje);
+		personaje.moverseA(0, 2);
 		dibujo.DibujarEn(posicionDos, personaje);
-		otroDibujo.DibujarEn(posicionDos, personaje);
 		
-		dibujo.DibujarEn(posicionTres, personaje);
-		otroDibujo.DibujarEn(posicionCuatro, personaje);
+		
+		personaje2.bajarLapiz();
+		otroDibujo.DibujarEn(posicionUno, personaje2);
+		personaje.moverseA(0, 1);
+		otroDibujo.DibujarEn(posicionUno, personaje2);
+		personaje.moverseA(0, 3);
+		otroDibujo.DibujarEn(posicionDos, personaje2);
 		
 		assertFalse(dibujo.EsIgualA(otroDibujo));
+		
 	}
 
 	@Test
     	public void test05PersonajeSeMueveConLapizAbajoYCreaDibujo(){
 		Tablero tablero_prueba = new Tablero();
 		Personaje personaje_prueba = new Personaje();
-		Bloques bajar_lapiz = new BajarLapiz();
-       		Bloques mover_derecha = new MoverDerecha();
+		Bloque bajar_lapiz = new BajarLapiz();
+       	Bloque mover_derecha = new MoverDerecha();
 
-        	tablero_prueba.agregarBloqueAlAlgoritmo(bajar_lapiz);
-        	tablero_prueba.agregarBloqueAlAlgoritmo(mover_derecha);
+        tablero_prueba.agregarBloqueAlAlgoritmo(bajar_lapiz);
+        tablero_prueba.agregarBloqueAlAlgoritmo(mover_derecha);
 		tablero_prueba.ejecutarAlgoritmoCon(personaje_prueba);
 		
 		assertFalse(tablero_prueba.dibujoVacio());
+		
 	}
 	
 	@Test
    	 public void test06PersonajeSeMueveConLapizArribaYNoCreaDibujo(){
 		Tablero tablero_prueba = new Tablero();
 		Personaje personaje_prueba = new Personaje();
-		 Bloques mover_derecha = new MoverDerecha();
+		 Bloque mover_derecha = new MoverDerecha();
 
 		tablero_prueba.agregarBloqueAlAlgoritmo(mover_derecha);
 		tablero_prueba.ejecutarAlgoritmoCon(personaje_prueba);

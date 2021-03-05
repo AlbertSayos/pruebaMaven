@@ -2,25 +2,26 @@ package algoritmo;
 
 import java.util.ArrayList;
 
-import bloques.Bloques;
+import bloques.Bloque;
+import bloques.Contenedor;
 import dibujos.Dibujo;
+
+import java.util.ArrayList;
 
 public class Juego {
 
     private Tablero tablero;
     private Personaje personaje;
+    private Contenedor bloqueContenedor;
 
     public Juego(){
         this.tablero = new Tablero();
         this.personaje = new Personaje();
+        bloqueContenedor = null;
     }
 
-    public void agregarBloque(Bloques un_bloque){
+    public void agregarBloque(Bloque un_bloque){
         this.tablero.agregarBloqueAlAlgoritmo(un_bloque);
-    }
-    
-    public void seleccionarBloque(int unaPosicion){
-        this.tablero.seleccionarBloqueAlAlgoritmo(unaPosicion);
     }
 
     public Posicion posicionActual(){
@@ -42,6 +43,10 @@ public class Juego {
     public Algoritmo pasarAlgoritmo(){
         return this.tablero.darAlgoritmo();
     }
+	
+    public ArrayList<Bloque> pasarAlgoritmoGuardado(){
+        return this.tablero.darAlgoritmoGuardado();
+    }
 
     public void ejecutarAlgoritmo(){
         this.tablero.ejecutarAlgoritmoCon(this.personaje);
@@ -57,12 +62,24 @@ public class Juego {
     }
 
 	public Personaje getPersonaje() {
-		// TODO Esbozo de método generado automáticamente
 		return personaje;
 	}
 
 	public void borrarDibujo() {
 		this.personaje.resetearPosicion();
 		this.tablero.borrarDibujo();
+	}
+
+	public void agregarBloqueContenedor(Contenedor bloque) {
+		bloqueContenedor = bloque;
+	}
+	
+	public void agregarAlBloque(Bloque un_bloque) {
+		bloqueContenedor.agregarBloque(un_bloque);
+	}
+	
+	public void finalizarBloqueContenedor() {
+		this.agregarBloque(bloqueContenedor);
+		bloqueContenedor = null;
 	}
 }
